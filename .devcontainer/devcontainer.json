@@ -1,0 +1,13 @@
+{
+  "name": "PHP with Nginx",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "nginx",
+  "workspaceFolder": "/var/www/html",
+  "shutdownAction": "stopCompose",
+  "portsAttributes": {
+    "80": {
+      "label": "Web Server",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}
