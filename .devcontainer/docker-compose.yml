@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ../:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+    depends_on:
+      - php
+
+  php:
+    image: php:8.3-fpm-alpine
+    volumes:
+      - ../:/var/www/html
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep php-fpm"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
