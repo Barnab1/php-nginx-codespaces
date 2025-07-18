@@ -12,7 +12,7 @@ services:
       - php
 
   php:
-    image: php:8.3-fpm-alpine
+    build: . #Tell codespaces to build from the Dockerfile in this directory
     volumes:
       - ../:/var/www/html
     healthcheck:
